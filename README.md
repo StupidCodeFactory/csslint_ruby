@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/csslint_ruby.png)](http://badge.fury.io/rb/csslint_ruby)
+
 # CsslintRuby
 
 API to lint your css source code from ruby.
