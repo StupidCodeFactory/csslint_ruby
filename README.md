@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/csslint_ruby.png)](http://badge.fury.io/rb/csslint_ruby)
+[![Dependency Status](https://gemnasium.com/StupidCodeFactory/csslint_ruby.png)](https://gemnasium.com/StupidCodeFactory/csslint_ruby)
 
 # CsslintRuby
 
