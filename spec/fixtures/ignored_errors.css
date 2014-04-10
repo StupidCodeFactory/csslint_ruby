@@ -1,0 +1,5 @@
+body {
+  /* @lintingIgnoreBegin */
+  display: unkown-property;
+  /* @lintingIgnoreEnd */
+}
