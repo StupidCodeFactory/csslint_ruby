@@ -3,7 +3,6 @@ require 'csslint_ruby/source'
 require 'execjs'
 
 module CsslintRuby
-  IGNORE_REGION_REGEX = /\/\* @codingStandardsIgnoreBegin \*\/.+?\/\* @codingStandardsIgnoreEnd \*\//m
 
   def self.context
     ExecJS.compile(
@@ -49,7 +48,8 @@ EOJS
 
   def self.run(source, options = {})
     source = source.respond_to?(:read) ? source.read : source
-    Result.new(*context.call('CSSLINTER', source.gsub(IGNORE_REGION_REGEX, ''), options))
+    processor = SourceProcessor.new(source, options.fetch(:ignore_tag, false))
+    Result.new(*context.call('CSSLINTER', processor.data_without_ignores, options))
   end
 
   class Result
@@ -64,6 +64,21 @@ EOJS
 
     def valid?
       errors.empty?
+    end
+  end
+
+  class SourceProcessor
+    DEFAULT_IGNORE_TAG = 'lintingIgnore'
+
+    attr_reader :ignore_tag, :data
+
+    def initialize(data, ignore_tag)
+      @data = data
+      @ignore_tag = ignore_tag || DEFAULT_IGNORE_TAG
+    end
+
+    def data_without_ignores
+      data.gsub(/\/\* @#{ignore_tag}Begin \*\/.+?\/\* @#{ignore_tag}End \*\//m, '')
     end
   end
 end

@@ -61,4 +61,15 @@ describe CsslintRuby do
       expect(result).to be_valid
     end
   end
+
+  describe 'When changes ignore tag value' do
+    let(:options) { {errors: ['known-properties'], ignore_tag: 'ignoreTest'} }
+    let(:source)  { File.open('spec/fixtures/custom_ignore_tag.css') }
+
+    subject(:result) { CsslintRuby.run(source, options) }
+
+    it 'ignores the errors between the comments' do
+      expect(result).to be_valid
+    end
+  end
 end
