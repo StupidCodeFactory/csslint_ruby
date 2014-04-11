@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/StupidCodeFactory/csslint_ruby.svg?branch=master)](https://travis-ci.org/StupidCodeFactory/csslint_ruby)
 [![Gem Version](https://badge.fury.io/rb/csslint_ruby.svg)](http://badge.fury.io/rb/csslint_ruby)
 [![Dependency Status](https://gemnasium.com/StupidCodeFactory/csslint_ruby.png)](https://gemnasium.com/StupidCodeFactory/csslint_ruby)
 
